@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Power Word Quest</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bowlby+One&family=Patrick+Hand&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-hand text-ink">
+<div id="cam">
+  <div id="sky"><div class="layer l1"></div><div class="layer l2"></div><div class="layer l3"></div></div>
+  <canvas id="fx"></canvas>
+  <div id="speed"></div><div id="flash"></div><div id="bolt"></div>
+
+  <!-- INTRO -->
+  <section id="intro" class="screen on">
+    <img id="sil" src="assets/characters/goku.png" onerror="this.onerror=null;this.src='assets/characters/goku.svg'" alt="">
+    <div id="introBub" class="bubble">HEY! YOU!</div>
+    <h1 id="logo" class="font-bang"><span>POWER</span><span>WORD</span><span>QUEST!</span></h1>
+    <p id="tag" class="font-bang">FIND IT. SPELL IT. POWER UP!</p>
+    <nav id="menu" class="flex flex-col sm:flex-row gap-4 items-center">
+      <button class="gbtn red" id="bStart">⚡ START QUEST</button>
+      <button class="gbtn blue" id="bHow">📖 HOW TO PLAY</button>
+      <button class="gbtn yellow" id="bLv">🌟 LEVEL SELECT</button>
+    </nav>
+  </section>
+
+  <!-- GAME -->
+  <section id="game" class="screen">
+    <header id="hud">
+      <div class="badge font-bang"><small>SCORE</small><b id="score">0</b></div>
+      <div id="lvTitle" class="font-bang">LEVEL 1</div>
+      <div id="combo" class="font-bang">COMBO ×0</div>
+      <div id="power"><span class="font-bang">⚡ POWER</span><div class="bar"><i id="pfill"></i></div></div>
+    </header>
+    <div id="arena">
+      <div id="actorWrap"><div id="bubbleWrap" class="bubble"><span id="say"></span></div>
+        <div id="aura"></div><img id="actor" alt="" src=""><svg id="sweat" viewBox="0 0 20 30"><path d="M10 2C10 2 2 14 2 20a8 8 0 0016 0C18 14 10 2 10 2z" fill="#6ec8ff" stroke="#111" stroke-width="2"/></svg></div>
+      <div id="stageCol">
+        <div id="mission" class="font-bang">FIND IT!</div>
+        <div id="sceneBox" class="panel"><div class="in"><div id="scene"></div><div id="found" class="font-bang">FOUND!<small>+100</small></div></div></div>
+      </div>
+      <div id="cwCol" class="panel"><div class="in">
+        <div id="cw"></div>
+        <div id="clueTxt"></div>
+        <div id="entry"><input id="ans" autocomplete="off" autocapitalize="characters" placeholder="TYPE IT!"><button class="gbtn red sm" id="go">GO!</button></div>
+        <div id="chips"></div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- MODALS -->
+  <section id="how" class="screen modal"><div class="paper"><h2 class="font-bang">HOW TO PLAY</h2>
+    <ol><li>Read the mission. Search the picture for that object.</li><li>Click it! Wrong clicks cost power.</li><li>Type the word. It blasts into the crossword.</li><li>Chain answers for combos. Fill the power bar for a POWER UP!</li></ol>
+    <button class="gbtn red sm" data-close>GOT IT!</button></div></section>
+  <section id="lv" class="screen modal"><div class="paper"><h2 class="font-bang">PICK A LEVEL</h2><div id="lvBtns" class="flex gap-3 flex-wrap justify-center"></div><button class="gbtn blue sm mt-4" data-close>BACK</button></div></section>
+  <section id="win" class="screen modal"><div class="burst"><h2 class="font-bang" id="winT">SUPER SOLVER!</h2><p id="winP"></p><button class="gbtn red" id="next">NEXT LEVEL ⚡</button></div></section>
+  <div id="title3" class="font-bang"></div>
+</div>
+<script src="js/layout.js"></script>
+<script src="js/scenes.js"></script>
+<script src="js/game.js"></script>
+</body></html>
